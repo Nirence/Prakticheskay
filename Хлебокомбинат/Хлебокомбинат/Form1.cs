@@ -16,5 +16,22 @@ namespace Хлебокомбинат
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            Form2 newP = new Form2();
+            newP.ShowDialog();
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            Form3 newP1 = new Form3();
+            newP1.ShowDialog();
+        }
     }
 }
