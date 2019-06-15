@@ -54,16 +54,16 @@ namespace Хлебокомбинат
                 e.Handled = true;
                 return;
             }
-            String text = textBox3.Text;
+            String text = textBox2.Text;
 
             if (text == "0" && e.KeyChar != 8)
                 e.Handled = true;
 
-            if (e.KeyChar == 48 && textBox3.SelectionStart == 0 && text != "")
+            if (e.KeyChar == 48 && textBox2.SelectionStart == 0 && text != "")
                 e.Handled = true;
 
             {
-                if (textBox3.Text.Length == 0)
+                if (textBox2.Text.Length == 0)
                     if (e.KeyChar == '0') e.Handled = true;
             }
         }
@@ -135,6 +135,56 @@ namespace Хлебокомбинат
             catch
             {
                 MessageBox.Show("Невозможно сохранить XML файл.", "Ошибка.");
+            }
+        }
+
+        private void TextBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.V && e.Modifiers == Keys.Control)
+            {
+                removeSpaces();
+            }
+            
+            if (e.KeyCode == Keys.Control && e.KeyCode == Keys.Insert)
+            {
+                removeSpaces();
+            }
+        }
+        private void removeSpaces()
+        {
+            textBox2.Text = textBox2.Text.Replace(" ", string.Empty);
+        }
+
+        private void TextBox2_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                textBox2.ContextMenu = new ContextMenu();
+            }
+        }
+
+        private void TextBox3_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.V && e.Modifiers == Keys.Control)
+            {
+                removeSpaces1();
+            }
+
+            if (e.KeyCode == Keys.Control && e.KeyCode == Keys.Insert)
+            {
+                removeSpaces1();
+            }
+        }
+        private void removeSpaces1()
+        {
+            textBox3.Text = textBox3.Text.Replace(" ", string.Empty);
+        }
+
+        private void TextBox3_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                textBox3.ContextMenu = new ContextMenu();
             }
         }
     }
